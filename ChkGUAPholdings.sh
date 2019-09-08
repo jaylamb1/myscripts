@@ -3,7 +3,7 @@
 
 clear
 
-echo "test test test"
+echo "test1 test2 test3"
 
 curl http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
 
