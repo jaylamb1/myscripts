@@ -5,6 +5,8 @@ clear
 
 echo "test test test"
 
+curl http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
+
 MN1= $(curl http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null)
 
 echo "MN1 Total= $MN1"
