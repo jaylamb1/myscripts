@@ -9,8 +9,8 @@ echo "testA5"
 MN1="testMN1"
 #MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs)
 parm="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
-
-echo -ne "test: $(su -c "curl -s -X $parm" "root")\\r"
+MN1=$(curl -X GET $parm)
+#echo -ne "test: $(su -c "curl -s -X $parm" "root")\\r"
 
 echo "MN1 Total= $MN1"
 #MN2= $(curl http://159.65.221.180:3001/ext/getbalance/GPRN7jMA9DAKPaSThT9TpH3EsHfgG2zSg6 2> /dev/null)
