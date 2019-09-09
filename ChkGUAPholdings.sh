@@ -3,7 +3,7 @@
 
 clear
 
-echo "testA9"
+echo "testB1"
 
 #MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs)
 parm1="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
@@ -47,6 +47,6 @@ echo "MN6 Total= $MN6"
 
 echo "__________________"
 MNTotal=""
-MNTotal= $(($MNTotal += $MN1))
+let MNTotal= $MN1 + $MN2
 
 echo "Total GUAP Holdings for all MNs: $MNTotal"
