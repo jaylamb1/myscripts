@@ -42,10 +42,11 @@ echo "MN6 Total= $MN6"
 echo "__________________"
 
 MNTotal=$(( $MN1 + 0 + $MN2 + $MN3 + $MN4 + $MN5 + $MN6 ))
-GUAPTotal="http://159.65.221.180:3001/ext/getmoneysupply"
-#Perc=$(( $MNTotal / $GUAPTotal ))
+parm7="http://159.65.221.180:3001/ext/getmoneysupply"
+GUAPTotal=$(curl -s -X GET $parm7)
+Perc=$(( $MNTotal / $GUAPTotal ))
 echo "Total GUAP Holdings for all MNs: $MNTotal"
 echo ""
 echo "Total GUAP Money Supply is: $GUAPTotal"
 echo ""
-#echo "Percentage of total GUAP money is: $Perc"
+echo "Percentage of total GUAP money is: $Perc"
