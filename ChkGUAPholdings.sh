@@ -48,8 +48,8 @@ GUAPTotal=$(curl -s -X GET $parm7)
 
 GUAPTotal=${GUAPTotal%%.*}
 GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
+Perc=`python -c 'print $MNTotal / $GUAPTotal'`
 
-Perc=`echo - | awk '{print $MNTotal / $GUAPTotal}'`
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
 echo "Total GUAP Holdings for all MNs: $MNTotal"
