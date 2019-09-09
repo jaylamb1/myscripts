@@ -45,9 +45,8 @@ MN6=$(curl -s -X GET $parm6)
 echo ""
 echo "MN6 Total= $MN6"
 
-echo ""
-echo "______________________________________________"
-
-MNTotal12= $(($MN1+$MN2))
+echo "__________________"
+MNTotal=""
+MNTotal12= $(($MNTotal12+$MN1))
 
 echo "Total GUAP Holdings for all MNs: $MNTotal"
