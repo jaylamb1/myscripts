@@ -3,10 +3,10 @@
 
 clear
 
-echo "test1 test2 test3"
+echo "testA testB testC"
 
 #curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
-
+MN1="testMN1"
 MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs)
 
 echo "MN1 Total= $MN1"
