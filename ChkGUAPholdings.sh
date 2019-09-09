@@ -48,7 +48,8 @@ GUAPTotal=$(curl -s -X GET $parm7)
 
 GUAPTotal=${GUAPTotal%%.*}
 
-Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
+Perc=`echo '5 / 2' | bc -l`
+#Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
 echo "Total GUAP Holdings for all MNs: $MNTotal"
 echo ""
