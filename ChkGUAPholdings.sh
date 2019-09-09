@@ -3,7 +3,7 @@
 
 clear
 
-echo "testB5"
+echo "testB6"
 
 #MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs)
 parm1="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
