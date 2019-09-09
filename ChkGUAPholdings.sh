@@ -9,8 +9,9 @@ echo ""
 parm1="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
 MN1=$(curl -s -X GET $parm1)
 #echo -ne "test: $(su -c "curl -s -X $parm" "root")\\r"
+#echo " 1234567890 " | sed -r ':L;s=\b([0-9]+)([0-9]{3})\b=\1,\2=g;t L'
 
-echo "MN1 Total= $MN1"
+echo "MN1 Total=" && "$MN1" | sed -r ':L;s=\b([0-9]+)([0-9]{3})\b=\1,\2=g;t L'
 #MN2= $(curl http://159.65.221.180:3001/ext/getbalance/GPRN7jMA9DAKPaSThT9TpH3EsHfgG2zSg6 2> /dev/null)
 
 parm2="http://159.65.221.180:3001/ext/getbalance/GPRN7jMA9DAKPaSThT9TpH3EsHfgG2zSg6"
