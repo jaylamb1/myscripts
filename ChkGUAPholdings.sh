@@ -3,7 +3,7 @@
 
 clear
 
-echo "testA1 testB1 testC1"
+echo "testA2 testB2 testC2"
 
 #curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
 MN1="testMN1"
