@@ -3,25 +3,27 @@
 
 clear
 
-echo "testA6"
+echo "testA7"
 
-#curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
-MN1="testMN1"
 #MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs)
-parm="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
-MN1=$(curl -X GET $parm)
+parm1="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
+MN1=$(curl -s -X GET $parm)
 #echo -ne "test: $(su -c "curl -s -X $parm" "root")\\r"
 
 echo "MN1 Total= $MN1"
 #MN2= $(curl http://159.65.221.180:3001/ext/getbalance/GPRN7jMA9DAKPaSThT9TpH3EsHfgG2zSg6 2> /dev/null)
 
-#echo ""
-#echo "MN2 Total= $MN2"
+parm2="http://159.65.221.180:3001/ext/getbalance/GPRN7jMA9DAKPaSThT9TpH3EsHfgG2zSg6"
+MN2=$(curl -s -X GET $parm2)
+echo ""
+echo "MN2 Total= $MN2"
 
 #MN3= $(curl http://159.65.221.180:3001/ext/getbalance/GadrCsoWB1YoGKiAofte1c8iyNaZpn7DHR 2> /dev/null)
+parm3="http://159.65.221.180:3001/ext/getbalance/GadrCsoWB1YoGKiAofte1c8iyNaZpn7DHR"
+MN3=$(curl -s -X GET $parm3)
+echo ""
+echo "MN2 Total= $MN3"
 
-#echo ""
-#echo "MN3 Total= $MN3"
 
 #MN4= $(curl http://159.65.221.180:3001/ext/getbalance/GVmzuuU8M2epADTHAFTcJfKKeVAT4odyZh 2> /dev/null)
 
