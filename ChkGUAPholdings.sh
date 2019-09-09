@@ -47,6 +47,7 @@ parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 GUAPTotal=$(curl -s -X GET $parm7)
 
 GUAPTotal=${GUAPTotal%%.*}
+GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
 
 Perc=`echo - | awk '{print $MNTotal / $GUAPTotal}'`
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
