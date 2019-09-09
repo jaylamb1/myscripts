@@ -5,11 +5,11 @@ clear
 
 echo "test1 test2 test3"
 
-curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
+#curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null
 
-#MN1= $(curl http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null)
+MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs 2> /dev/null)
 
-#echo "MN1 Total= $MN1"
+echo "MN1 Total= $MN1"
 #MN2= $(curl http://159.65.221.180:3001/ext/getbalance/GPRN7jMA9DAKPaSThT9TpH3EsHfgG2zSg6 2> /dev/null)
 
 #echo ""
