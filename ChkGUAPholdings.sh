@@ -47,6 +47,6 @@ echo "MN6 Total= $MN6"
 
 echo "__________________"
 MNTotal=""
-MNTotal= $(($MNTotal+=$MN1))
+MNTotal= $(($MNTotal += $MN1))
 
 echo "Total GUAP Holdings for all MNs: $MNTotal"
