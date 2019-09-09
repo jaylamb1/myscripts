@@ -3,8 +3,8 @@
 
 clear
 
-echo "testB6"
-
+echo $(date)
+echo ""
 #MN1= $(curl -s http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs)
 parm1="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
 MN1=$(curl -s -X GET $parm1)
