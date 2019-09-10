@@ -48,7 +48,9 @@ GUAPTotal=$(curl -s -X GET $parm7)
 
 #GUAPTotal=${GUAPTotal%%.*}
 #GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
-Perc=$(python -c 'import os; print os.environ["MNTotal"]')
+export MNTotal
+export GUAPTotal
+Perc=$(python -c 'import os; print os.environ["MNTotal"] / os.environ["GUAPTotal"]')
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
