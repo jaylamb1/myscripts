@@ -37,7 +37,7 @@ echo "MN5 Total= $MN5"
 parm6="http://159.65.221.180:3001/ext/getbalance/GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d"
 MN6=$(curl -s -X GET $parm6)
 echo ""
-echo "MN6 Total= $MN6"
+echo "MN6 Total= $MN6 | awk '{printf "%\047d\n", $1}'"
 
 echo "__________________"
 
