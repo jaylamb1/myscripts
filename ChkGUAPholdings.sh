@@ -58,7 +58,7 @@ Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MNTotal"])
 echo "MNs Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MNTotal"]))')"
 echo ""
 echo ""
-echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["GUAPTotal"]))')"
+echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
 echo ""
 echo "Percentage of total GUAP money is: $Perc%"
 set +a
