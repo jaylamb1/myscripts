@@ -29,7 +29,7 @@ do
   tempVar=${Addr[$n]}
   echo $tempVar
   #echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
-  n=$($n + 1)
+  n=$((n + 1))
 done
 
 echo "________________________"
@@ -46,7 +46,7 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar= "${Addr[$n]}"
   echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
-  n=$($n + 1)
+  n=$((n + 1))
 done
 
 
