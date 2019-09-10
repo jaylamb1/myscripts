@@ -50,7 +50,7 @@ GUAPTotal=$(curl -s -X GET $parm7)
 #GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
 export MNTotal
 export GUAPTotal
-Perc=$(python -c 'import os; print "{:12.2f}".format(float(os.environ["MNTotal"]) / float(os.environ["GUAPTotal"]))')
+Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MNTotal"]) / float(os.environ["GUAPTotal"]) * 100))')
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
@@ -58,4 +58,4 @@ echo "Total GUAP Holdings for all MNs: $MNTotal"
 echo ""
 echo "Total GUAP Money Supply is: $GUAPTotal"
 echo ""
-echo "Percentage of total GUAP money is: $Perc"
+echo "Percentage of total GUAP money is: $Perc%"
