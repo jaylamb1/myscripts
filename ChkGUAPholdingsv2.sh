@@ -64,7 +64,7 @@ Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
-echo "MNs Total= $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]) + float(os.environ["Change"]))')"
+echo "MNs Total= $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]))')"
 echo ""
 echo ""
 echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
