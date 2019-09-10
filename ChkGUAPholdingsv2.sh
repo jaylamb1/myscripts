@@ -35,8 +35,8 @@ done
 echo "________________________"
 
 #get change
-parm6b="http://159.65.221.180:3001/ext/getbalance/GTopckRJ7f4a1VSVd2fZRTW7KGUt8JBccb"
-Change=$(curl -s -X GET $parm6b)
+#parm6b="http://159.65.221.180:3001/ext/getbalance/GTopckRJ7f4a1VSVd2fZRTW7KGUt8JBccb"
+#Change=$(curl -s -X GET $parm6b)
 MNTotal=0
 n=0
 for i in "${Addr[@]}"
