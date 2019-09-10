@@ -39,7 +39,7 @@ echo "MN5 Total= $MN5"
 parm6="http://159.65.221.180:3001/ext/getbalance/GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d"
 MN6=$(curl -s -X GET $parm6)
 echo ""
-echo "MN6 Total= $(python -c 'import os; print "{:,d}".format(float(os.environ["MN6"]))')"
+echo "MN6 Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MN6"]))')"
 
 echo "__________________"
 
