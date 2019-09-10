@@ -37,12 +37,12 @@ echo "________________________"
 #get change
 #parm6b="http://159.65.221.180:3001/ext/getbalance/GTopckRJ7f4a1VSVd2fZRTW7KGUt8JBccb"
 #Change=$(curl -s -X GET $parm6b)
-MNTotal=0
+MN_Total=0
 n=0
 for i in "${Addr[@]}"
 do
 	#echo $i
-  MNTotal=$((0 + $MNTotal + ${Addr[n]}))
+  MN_Total=$((0 + $MN_Total + ${Addr[n]}))
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar= "${Addr[$n]}"
   echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
