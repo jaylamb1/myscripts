@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+echo ""
+echo ""
 echo $(date)
 echo ""
 
