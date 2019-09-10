@@ -7,7 +7,7 @@ n=0
 declare -a MNArray
 sed '/^[ \t]*$/d' $filename | while read line; do
 # reading each line
-echo $line
+echo "- " && $line && " -"
 MNArray[$n]=$line
 n=$((n+1))
 done < $filename
@@ -32,7 +32,7 @@ do
   ((++n))
 done
 
-echo "________________________"
+echo "_____________________________"
 
 MN_Total=0
 n=0
