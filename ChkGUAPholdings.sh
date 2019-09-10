@@ -60,6 +60,10 @@ echo ""
 echo ""
 echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
 echo ""
+parm8="http://159.65.221.180:3001/ext/getmasternodecount"
+MNCount=$(curl -s -X GET $parm8)
+echo "Total number of GUAP masternodes: $MNCount"
+echo ""
 echo "Percentage of total GUAP money is: $Perc%"
 echo ""
 set +a
