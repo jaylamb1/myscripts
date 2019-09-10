@@ -3,7 +3,7 @@ set -a
 
 filename=$1
 n=0
-
+echo ""
 declare -a MNArray
 while read line; do
 # reading each line
@@ -28,7 +28,8 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
   echo $tempVar
-  #echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+  echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+  echo ""
   ((++n))
 done
 
