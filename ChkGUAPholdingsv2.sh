@@ -20,6 +20,7 @@ echo ""
 echo ""
 
 n=0
+echo "       Adress                                        Subtotal"
 echo "--------------------------------------------------------------------"
 echo ""
 for i in "${MNArray[@]}"
@@ -29,7 +30,7 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
 
-  echo " $i GUAP Subtotal =    $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
+  echo " $i               =    $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
   echo ""
 
   ((++n))
