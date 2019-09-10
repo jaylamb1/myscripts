@@ -3,7 +3,9 @@ set -a
 
 filename=$1
 n=0
+echo $(date)
 echo ""
+echo "Wallets addresses read from file.txt:"
 declare -a MNArray
 while read line; do
 # reading each line
@@ -17,18 +19,17 @@ done < $filename
 
 echo ""
 echo ""
-echo $(date)
 echo ""
 
 n=0
 for i in "${MNArray[@]}"
 do
-	echo "n = $i"
+	echo "Checking address # $i"
   parm="http://159.65.221.180:3001/ext/getbalance/$i"
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
-  echo $tempVar
-  echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+  echo "Amount = $tempVar"
+  echo "Address #$(($n + 1)) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   echo ""
   ((++n))
 done
