@@ -28,7 +28,8 @@ do
   tempVar=${Addr[$n]}
 
   echo " $i GUAP Subtotal =    $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
-  let lastElement=${MNArray[*]} -1
+  let lastElement=${MNArray:$#}
+  echo $lastElement
   if ! [ $i == $lastElement ] 2> /dev/null
   then
     echo ""
