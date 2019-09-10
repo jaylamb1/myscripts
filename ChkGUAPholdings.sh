@@ -40,7 +40,7 @@ MN6=$(curl -s -X GET $parm6)
 echo ""
 echo "MN6 Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MN6"]))')"
 
-echo "__________________"
+echo "________________________"
 
 MNTotal=$(( $MN1 + 0 + $MN2 + $MN3 + $MN4 + $MN5 + $MN6 ))
 parm7="http://159.65.221.180:3001/ext/getmoneysupply"
@@ -61,4 +61,5 @@ echo ""
 echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
 echo ""
 echo "Percentage of total GUAP money is: $Perc%"
+echo ""
 set +a
