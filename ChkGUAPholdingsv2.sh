@@ -20,7 +20,7 @@ echo ""
 echo ""
 
 n=0
-echo "       Adress                                        Subtotal"
+echo "      [ Adress ]                                      [ Subtotal ]"
 echo "--------------------------------------------------------------------"
 echo ""
 for i in "${MNArray[@]}"
