@@ -7,6 +7,7 @@ echo ""
 echo $(date)
 echo ""
 echo "GUAP Wallet addresses read from file.txt:"
+echo "-----------------------------------------"
 declare -a MNArray
 while read line; do
 # reading each line
@@ -20,6 +21,7 @@ echo ""
 
 n=0
 echo "--------------------------------------------------------------------"
+echo ""
 for i in "${MNArray[@]}"
 do
 
@@ -28,18 +30,13 @@ do
   tempVar=${Addr[$n]}
 
   echo " $i GUAP Subtotal =    $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
-  let lastElement=${MNArray:$#}
-  echo $lastElement
-  if ! [ $i == $lastElement ] 2> /dev/null
-  then
-    echo ""
-  fi
+  echo ""
 
   ((++n))
 done
 
 echo "--------------------------------------------------------------------"
-
+echo "--------------------------------------------------------------------"
 MN_Total=0
 n=0
 #Add everything up
