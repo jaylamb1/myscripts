@@ -28,13 +28,14 @@ do
   parm="http://159.65.221.180:3001/ext/getbalance/$i"
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
-
-  echo "Address #$i Total=      $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+  echo "|------------- Adress -------------|-------------------------------|"
+  #echo " GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs GUAP Subtotal =      30,000.00"
+  echo " $i GUAP Subtotal =      $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   echo ""
   ((++n))
 done
 
-echo "____________________________________________________"
+  echo "____________________________________________________________________"
 
 MN_Total=0
 n=0
@@ -42,9 +43,9 @@ n=0
 for i in "${Addr[@]}"
 do
 	#echo $i
-  tempVar= "${Addr[$n]}"
+  tempVar=${Addr[$n]}
   #MN_Total=$((0 + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MN_Total"]))') + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ[""]))')))
-  MN_Total=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"])))')
+  MN_Total=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"]))')
   echo $MN_Total
   #Addr[$n]=$(curl -s -X GET $parm)
 
