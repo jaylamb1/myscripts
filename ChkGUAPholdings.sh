@@ -42,6 +42,10 @@ echo "MN6 Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.enviro
 
 echo "________________________"
 
+#get change
+parm6b="http://159.65.221.180:3001/ext/getbalance/GTopckRJ7f4a1VSVd2fZRTW7KGUt8JBccb"
+Change=$(curl -s -X GET $parm6b)
+
 MNTotal=$(( $MN1 + 0 + $MN2 + $MN3 + $MN4 + $MN5 + $MN6 ))
 parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 
@@ -55,7 +59,7 @@ Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MNTotal"])
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
-echo "MNs Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MNTotal"]))')"
+echo "MNs Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MNTotal"]) + float(os.environ["Change"]))')"
 echo ""
 echo ""
 echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
