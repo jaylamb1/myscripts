@@ -5,7 +5,7 @@ filename=$1
 n=0
 echo $(date)
 echo ""
-echo "Wallets addresses read from file.txt:"
+echo "GUAP Wallet addresses read from file.txt:"
 declare -a MNArray
 while read line; do
 # reading each line
@@ -24,17 +24,17 @@ echo ""
 n=0
 for i in "${MNArray[@]}"
 do
-	echo "Checking address # $i"
+
   parm="http://159.65.221.180:3001/ext/getbalance/$i"
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
-  echo "Amount = $tempVar"
-  echo "Address #$(($n + 1)) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+
+  echo "Address #$i Total=      $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   echo ""
   ((++n))
 done
 
-echo "_____________________________"
+echo "____________________________________________________"
 
 MN_Total=0
 n=0
@@ -42,10 +42,12 @@ n=0
 for i in "${Addr[@]}"
 do
 	#echo $i
-  MN_Total=$((0 + $MN_Total + ${Addr[n]}))
+  tempVar= "${Addr[$n]}"
+  #MN_Total=$((0 + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MN_Total"]))') + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ[""]))')))
+  MN_Total=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"])))')
   echo $MN_Total
   #Addr[$n]=$(curl -s -X GET $parm)
-  #tempVar= "${Addr[$n]}"
+
   #echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   ((++n))
 done
