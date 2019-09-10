@@ -26,7 +26,7 @@ do
 	#echo $i
   parm="http://159.65.221.180:3001/ext/getbalance/$i"
   Addr[$n]=$(curl -s -X GET $parm)
-  tempVar= $(echo "${Addr[$n]}")
+  tempVar= "${Addr[$n]}"
   echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   n=$($n + 1)
 done
@@ -43,7 +43,7 @@ do
 	#echo $i
   MNTotal=$MNTotal + ${Addr[n]}
   Addr[$n]=$(curl -s -X GET $parm)
-  tempVar= $(echo "${Addr[$n]}")
+  tempVar= "${Addr[$n]}"
   echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   n=$($n + 1)
 done
