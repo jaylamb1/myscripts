@@ -5,7 +5,7 @@ filename=$1
 n=0
 
 declare -a MNArray
-sed '/^[ \t]*$/d' $filename | while read line; do
+while read line; do
 # reading each line
 echo $line
 MNArray[$n]=$line
