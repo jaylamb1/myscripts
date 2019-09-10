@@ -6,6 +6,8 @@ clear
 echo $(date)
 echo ""
 
+set -a
+
 parm1="http://159.65.221.180:3001/ext/getbalance/GK6Vdaq4Gp7G5aUSPiMFb6gKpk3Sq5xeCs"
 MN1=$(curl -s -X GET $parm1)
 
@@ -37,7 +39,7 @@ echo "MN5 Total= $MN5"
 parm6="http://159.65.221.180:3001/ext/getbalance/GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d"
 MN6=$(curl -s -X GET $parm6)
 echo ""
-echo "MN6 Total= $MN6 | awk '{printf "%\047d\n", $1}'"
+echo "MN6 Total= $(python -c 'import os; print "{:,d}".format(float(os.environ["MN6"]))')"
 
 echo "__________________"
 
@@ -48,14 +50,16 @@ GUAPTotal=$(curl -s -X GET $parm7)
 
 #GUAPTotal=${GUAPTotal%%.*}
 #GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
-export MNTotal
-export GUAPTotal
+#export MNTotal
+#export GUAPTotal
 Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MNTotal"]) / float(os.environ["GUAPTotal"]) * 100))')
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
-echo "Total GUAP Holdings for all MNs: $MNTotal"
+echo "MNs Total= $MNTotal"
+echo ""
 echo ""
 echo "Total GUAP Money Supply is: $GUAPTotal"
 echo ""
 echo "Percentage of total GUAP money is: $Perc%"
+set +a
