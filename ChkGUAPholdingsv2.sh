@@ -43,6 +43,7 @@ for i in "${Addr[@]}"
 do
 	#echo $i
   MN_Total=$((0 + $MN_Total + ${Addr[n]}))
+  echo $MN_Total
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar= "${Addr[$n]}"
   echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
@@ -59,11 +60,11 @@ GUAPTotal=$(curl -s -X GET $parm7)
 #GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
 #export MNTotal
 #export GUAPTotal
-Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MNTotal"]) / float(os.environ["GUAPTotal"]) * 100))')
+Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 
-echo "MNs Total= $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MNTotal"]) + float(os.environ["Change"]))')"
+echo "MNs Total= $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]) + float(os.environ["Change"]))')"
 echo ""
 echo ""
 echo "Total GUAP Money Supply is: $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
