@@ -37,14 +37,15 @@ echo "_____________________________"
 
 MN_Total=0
 n=0
+#Add everything up
 for i in "${Addr[@]}"
 do
 	#echo $i
   MN_Total=$((0 + $MN_Total + ${Addr[n]}))
   echo $MN_Total
-  Addr[$n]=$(curl -s -X GET $parm)
-  tempVar= "${Addr[$n]}"
-  echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+  #Addr[$n]=$(curl -s -X GET $parm)
+  #tempVar= "${Addr[$n]}"
+  #echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
   ((++n))
 done
 
