@@ -41,7 +41,7 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
   tempLabel=${MNLabelArray[$n]}
-  echo "  $tempLabel        $i : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
+  echo "  $tempLabel        $i : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["tempVar"]))')"
   echo ""
 
   ((++n))
@@ -57,7 +57,7 @@ do
   tempVar=${Addr[$n]}
   #MN_Total=$((0 + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MN_Total"]))') + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ[""]))')))
   #MN_Total=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"]))')
-  MN_Total=$(python -c 'import os; print "{:.3f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"])))')
+  MN_Total=$(python -c 'import os; print "{:>14.3f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"])))')
   #echo $MN_Total
   #Addr[$n]=$(curl -s -X GET $parm)
 
@@ -79,10 +79,10 @@ Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 echo ""
-echo "Total GUAP Holdings                    : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]))')"
+echo "Total GUAP Holdings                    : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["MN_Total"]))')"
 #echo "MN6 GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
 echo ""
-echo "Total GUAP Money Supply                : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["GUAPTotal"]))')"
+echo "Total GUAP Money Supply                : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')"
 echo ""
 parm8="http://159.65.221.180:3001/ext/getmasternodecount"
 MNCount=$(curl -s -X GET $parm8)
