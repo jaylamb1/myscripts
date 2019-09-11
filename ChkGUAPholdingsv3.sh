@@ -2,12 +2,12 @@
 set -a
 
 echo ""
-echo "   Script to view a snapshot of your GUAP holdings    "
+echo "               GUAP Holdings Snaphot                   "
 echo "-------------------------------------------------------"
 
 echo
 d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
-echo "Timestamp = $d"
+echo "Timestamp : $d"
 echo ""
 echo "GUAP addresses (and labels) read from address file:"
 echo "-------------------------------------------------------"
@@ -40,7 +40,7 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
   tempLabel=${MNLabelArray[$n]}
-  echo "$tempLabel $i = $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
+  echo "$tempLabel $i : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
   echo ""
 
   ((++n))
@@ -78,9 +78,9 @@ Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 echo ""
-echo "Total GUAP Holdings = $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]))')"
+echo "Total GUAP Holdings : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]))')"
 echo ""
-echo "Total GUAP Money Supply = $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
+echo "Total GUAP Money Supply : $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
 echo ""
 parm8="http://159.65.221.180:3001/ext/getmasternodecount"
 MNCount=$(curl -s -X GET $parm8)
@@ -88,9 +88,9 @@ MNCount=$(curl -s -X GET $parm8)
 parm9="http://159.65.221.180:3001/api/getblockcount"
 BlockHeight=$(curl -s -X GET $parm9)
 
-echo "Percentage of total GUAP Money Supply = $Perc%"
+echo "Percentage of total GUAP Money Supply : $Perc%"
 echo ""
-echo "Total number of GUAP masternodes: $MNCount"
+echo "Total number of GUAP masternodes : $MNCount"
 echo ""
 echo "GUAP Chain Block Count : $BlockHeight"
 echo ""
