@@ -47,8 +47,7 @@ do
   ((++n))
 done
 
-echo "-----------------------------------------------------------------"
-echo "-----------------------------------------------------------------"
+
 MN_Total=0
 n=0
 #Add everything up
@@ -70,10 +69,9 @@ GUAPTotal=$(curl -s -X GET $parm7)
 
 Perc=$(python -c 'import os; print "{:>13,.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
 
-
-echo ""
 echo "Total GUAP Holdings                             : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["MN_Total"]))')"
-
+echo "-----------------------------------------------------------------"
+echo "-----------------------------------------------------------------"
 echo ""
 echo "Total GUAP Money Supply                         : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')"
 
