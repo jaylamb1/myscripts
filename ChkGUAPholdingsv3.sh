@@ -26,7 +26,7 @@ echo ""
 echo ""
 
 n=0
-echo "  [ Address ]                          [ Subtotal ]"
+echo "      [Address]                          [Subtotal]"
 echo "---------------------------------------------------"
 echo ""
 
