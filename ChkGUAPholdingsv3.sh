@@ -3,7 +3,7 @@ set -a
 
 
 echo
-d=$(date +'%a %m-%d-%Y %H:%M:%S')
+d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
 echo $d
 echo ""
 echo "GUAP Wallet addresses read from the address file:"
