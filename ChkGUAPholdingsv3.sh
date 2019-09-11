@@ -2,8 +2,8 @@
 set -a
 
 echo ""
-echo "             [GUAP Holdings Snaphot]                   "
-echo "-------------------------------------------------------"
+echo "                [GUAP Holdings Snaphot]                     "
+echo "------------------------------------------------------------"
 
 echo
 d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
@@ -29,8 +29,9 @@ done < $filename
 echo ""
 
 n=0
-echo "      [ Address ]                       [ Subtotal ]   "
-echo "-------------------------------------------------------"
+echo "[Label]      [Address]                            [Subtotal]"
+echo "------------------------------------------------------------"
+#echo "Chg          GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
 echo ""
 
 for i in "${MNArray[@]}"
@@ -40,14 +41,14 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
   tempLabel=${MNLabelArray[$n]}
-  echo "$tempLabel $i : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
+  echo "$tempLabel          $i : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
   echo ""
 
   ((++n))
 done
 
-echo "-------------------------------------------------------"
-echo "-------------------------------------------------------"
+echo "------------------------------------------------------------"
+echo "------------------------------------------------------------"
 MN_Total=0
 n=0
 #Add everything up
