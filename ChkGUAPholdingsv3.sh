@@ -7,9 +7,9 @@ echo "-------------------------------------------------------"
 
 echo
 d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
-echo $d
+echo "Timestamp = $d"
 echo ""
-echo "GUAP addresses (and labels) read from the address file:"
+echo "GUAP addresses (and labels) read from address file:"
 echo "-------------------------------------------------------"
 
 declare -a MNArray
