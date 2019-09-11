@@ -89,10 +89,10 @@ MNCount=$(curl -s -X GET $parm8)
 parm9="http://159.65.221.180:3001/api/getblockcount"
 BlockHeight=$(curl -s -X GET $parm9)
 
-echo "Percentage of total GUAP Money Supply : $Perc%"
+echo "Percentage of total GUAP Money Supply  : $Perc%"
 echo ""
-echo "Total number of GUAP masternodes      : $MNCount"
+echo "Total number of GUAP masternodes       : $MNCount"
 echo ""
-echo "GUAP Chain Block Count                : $BlockHeight"
+echo "GUAP Chain Block Count                 : $BlockHeight"
 echo ""
 set +a
