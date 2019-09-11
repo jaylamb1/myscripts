@@ -55,34 +55,28 @@ n=0
 for i in "${Addr[@]}"
 do
   tempVar=${Addr[$n]}
-  #MN_Total=$((0 + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["MN_Total"]))') + $(python -c 'import os; print "{0:,.2f}".format(float(os.environ[""]))')))
-  #MN_Total=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"]))')
-  MN_Total=$(python -c 'import os; print "{:>14.3f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"])))')
-  #echo $MN_Total
-  #Addr[$n]=$(curl -s -X GET $parm)
 
-  #echo "Address #$($n + 1) Total= $(python -c 'import os; print "{0:,.2f}".format(float(os.environ["tempVar"]))')"
+  MN_Total=$(python -c 'import os; print "{:>14.3f}".format((float(os.environ["MN_Total"]) + float(os.environ["tempVar"])))')
+
   ((++n))
 done
 
 
-#MNTotal=$(( $MN1 + 0 + $MN2 + $MN3 + $MN4 + $MN5 + $MN6 ))
+
 parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 
 GUAPTotal=$(curl -s -X GET $parm7)
 
-#GUAPTotal=${GUAPTotal%%.*}
-#GUAPTotal=${GUAPTotal} | sed -e 's/^[[:space:]]*//'
-#export MNTotal
-#export GUAPTotal
+
 Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
 
-#Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
+
 echo ""
-echo "Total GUAP Holdings                         : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["MN_Total"]))')"
-#echo "MN6 GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
+echo "Total GUAP Holdings                             : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["MN_Total"]))')"
+
 echo ""
-echo "Total GUAP Money Supply                     : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')"
+echo "Total GUAP Money Supply                         : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')"
+
 echo ""
 parm8="http://159.65.221.180:3001/ext/getmasternodecount"
 MNCount=$(curl -s -X GET $parm8)
@@ -93,10 +87,10 @@ shopt -u extglob
 parm9="http://159.65.221.180:3001/api/getblockcount"
 BlockHeight=$(curl -s -X GET $parm9)
 #echo "MN6 GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
-echo "Percentage of total GUAP Money Supply       : $Perc%"
+echo "Percentage of total GUAP Money Supply           : $Perc%"
 echo ""
-echo "Total number of GUAP masternodes            : $MNCount"
+echo "Total number of GUAP masternodes                : $MNCount"
 echo ""
-echo "GUAP Chain Block Count                      : $BlockHeight"
+echo "GUAP Chain Block Count                          : $BlockHeight"
 echo ""
 set +a
