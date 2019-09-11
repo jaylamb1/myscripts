@@ -41,7 +41,7 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
   tempLabel=${MNLabelArray[$n]}
-  echo "$tempLabel          $i : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
+  echo "  $tempLabel        $i : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
   echo ""
 
   ((++n))
