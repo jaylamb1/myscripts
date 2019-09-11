@@ -68,7 +68,7 @@ parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 GUAPTotal=$(curl -s -X GET $parm7)
 
 
-Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
+Perc=$(python -c 'import os; print "{:>14,.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
 
 
 echo ""
@@ -83,10 +83,14 @@ MNCount=$(curl -s -X GET $parm8)
 shopt -s extglob
 MNCount=${MNCount##*( )}
 shopt -u extglob
+MNCount=$(printf '%14s' $MNCount)
+
+
 
 parm9="http://159.65.221.180:3001/api/getblockcount"
 BlockHeight=$(curl -s -X GET $parm9)
-#echo "MN6 GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
+BlockHeight=$(printf '%14s' $BlockHeight)
+
 echo "Percentage of total GUAP Money Supply           : $Perc%"
 echo ""
 echo "Total number of GUAP masternodes                : $MNCount"
