@@ -9,8 +9,8 @@ echo
 d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
 echo "Timestamp : $d"
 echo ""
-echo "GUAP addresses (and labels) read from address file:"
-echo "-------------------------------------------------------"
+#echo "GUAP addresses (and labels) read from address file:"
+#echo "-------------------------------------------------------"
 
 declare -a MNArray
 declare -a MNLabelArray
@@ -19,13 +19,13 @@ filename=$1
 n=0
 while read label address; do
 # reading each line
-echo "$label $address"
+#echo "$label $address"
 MNLabelArray[$n]=$label
 MNArray[$n]=$address
 n=$((n+1))
 done < $filename
 
-echo ""
+#echo ""
 echo ""
 
 n=0
