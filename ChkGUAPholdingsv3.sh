@@ -6,7 +6,7 @@ echo ""
 echo $(date)
 echo ""
 echo "GUAP Wallet addresses read from the address file:"
-echo "-----------------------------------------"
+echo "------------------------------------------------"
 
 declare -a MNArray
 declare -a MNLabelArray
@@ -25,8 +25,8 @@ echo ""
 echo ""
 
 n=0
-echo "      [ Address ]                                     [ Subtotal ]"
-echo "--------------------------------------------------------------------"
+echo "  [ Address ]                       [ Subtotal ]"
+echo "------------------------------------------------"
 echo ""
 
 for i in "${MNArray[@]}"
@@ -36,14 +36,14 @@ do
   Addr[$n]=$(curl -s -X GET $parm)
   tempVar=${Addr[$n]}
   tempLabel=${MNLabelArray[$n]}
-  echo "$tempLabel $i               =    $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
+  echo "$tempLabel $i = $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["tempVar"]))')"
   echo ""
 
   ((++n))
 done
 
-echo "--------------------------------------------------------------------"
-echo "--------------------------------------------------------------------"
+echo "------------------------------------------------"
+echo "------------------------------------------------"
 MN_Total=0
 n=0
 #Add everything up
