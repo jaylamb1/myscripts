@@ -3,10 +3,10 @@ set -a
 
 
 echo ""
-echo $(date)
+echo $(date +%a +%m-%d-%Y %H:%M:%S)
 echo ""
 echo "GUAP Wallet addresses read from the address file:"
-echo "------------------------------------------------"
+echo "---------------------------------------------------"
 
 declare -a MNArray
 declare -a MNLabelArray
@@ -25,8 +25,8 @@ echo ""
 echo ""
 
 n=0
-echo "  [ Address ]                       [ Subtotal ]"
-echo "------------------------------------------------"
+echo "  [ Address ]                          [ Subtotal ]"
+echo "---------------------------------------------------"
 echo ""
 
 for i in "${MNArray[@]}"
@@ -42,8 +42,8 @@ do
   ((++n))
 done
 
-echo "------------------------------------------------"
-echo "------------------------------------------------"
+echo "---------------------------------------------------"
+echo "---------------------------------------------------"
 MN_Total=0
 n=0
 #Add everything up
