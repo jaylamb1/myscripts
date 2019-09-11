@@ -1,13 +1,16 @@
 #!/bin/bash
 set -a
 
+echo ""
+echo "   Script to view a snapshot of your GUAP holdings    "
+echo "-------------------------------------------------------"
 
 echo
 d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
 echo $d
 echo ""
-echo "GUAP Wallet addresses read from the address file:"
-echo "------------------------------------------------------"
+echo "GUAP addresses (and labels) read from the address file:"
+echo "-------------------------------------------------------"
 
 declare -a MNArray
 declare -a MNLabelArray
@@ -27,7 +30,7 @@ echo ""
 
 n=0
 echo "      [ Address ]                         [ Subtotal ]"
-echo "------------------------------------------------------"
+echo "-------------------------------------------------------"
 echo ""
 
 for i in "${MNArray[@]}"
@@ -43,8 +46,8 @@ do
   ((++n))
 done
 
-echo "------------------------------------------------------"
-echo "------------------------------------------------------"
+echo "-------------------------------------------------------"
+echo "-------------------------------------------------------"
 MN_Total=0
 n=0
 #Add everything up
