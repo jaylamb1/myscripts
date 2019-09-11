@@ -68,7 +68,7 @@ parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 GUAPTotal=$(curl -s -X GET $parm7)
 
 
-Perc=$(python -c 'import os; print "{:>14,.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
+Perc=$(python -c 'import os; print "{:>13,.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
 
 
 echo ""
