@@ -2,7 +2,7 @@
 set -a
 
 echo ""
-echo "               GUAP Holdings Snaphot                   "
+echo "             [GUAP Holdings Snaphot]                   "
 echo "-------------------------------------------------------"
 
 echo
@@ -29,7 +29,7 @@ echo ""
 echo ""
 
 n=0
-echo "      [ Address ]                         [ Subtotal ]"
+echo "      [ Address ]                        [ Subtotal ]  "
 echo "-------------------------------------------------------"
 echo ""
 
@@ -78,9 +78,10 @@ Perc=$(python -c 'import os; print "{:.2f}".format((float(os.environ["MN_Total"]
 
 #Perc=$(( '$MNTotal / $GUAPTotal' | bc -l ))
 echo ""
-echo "Total GUAP Holdings : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]))')"
+echo "Total GUAP Holdings                    : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["MN_Total"]))')"
+#echo "MN6 GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
 echo ""
-echo "Total GUAP Money Supply : $(python -c 'import os; print "{0:,.5f}".format(float(os.environ["GUAPTotal"]))')"
+echo "Total GUAP Money Supply                : $(python -c 'import os; print "{0:,.3f}".format(float(os.environ["GUAPTotal"]))')"
 echo ""
 parm8="http://159.65.221.180:3001/ext/getmasternodecount"
 MNCount=$(curl -s -X GET $parm8)
@@ -90,8 +91,8 @@ BlockHeight=$(curl -s -X GET $parm9)
 
 echo "Percentage of total GUAP Money Supply : $Perc%"
 echo ""
-echo "Total number of GUAP masternodes : $MNCount"
+echo "Total number of GUAP masternodes      : $MNCount"
 echo ""
-echo "GUAP Chain Block Count : $BlockHeight"
+echo "GUAP Chain Block Count                : $BlockHeight"
 echo ""
 set +a
