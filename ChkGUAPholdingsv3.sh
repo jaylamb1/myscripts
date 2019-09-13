@@ -24,7 +24,7 @@ while read label address; do
 # reading each line
 ([[ "$label" =~ ^[[:space:]]*# ]] | [[ "$label" =~ [[:space:]] ]]) && continue
 #[[ "$label" =~ [[:space:]] ]] && continue
-#echo "$label $address"
+echo "$label $address"
 MNLabelArray[$n]=$label
 MNArray[$n]=$address
 n=$((n+1))
