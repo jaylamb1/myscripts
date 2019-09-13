@@ -17,6 +17,8 @@ declare -a MNArray
 declare -a MNLabelArray
 
 filename=$1
+sed -i ".backup" 's/^#.*$//' $filename
+
 n=0
 while read label address; do
 # reading each line
