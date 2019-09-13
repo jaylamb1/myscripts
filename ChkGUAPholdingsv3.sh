@@ -17,12 +17,15 @@ declare -a MNArray
 declare -a MNLabelArray
 
 filename=$1
-#sed -i ".backup" 's/^#.*$//' $filename
-#sed -i ".backup" '/^$/d'
+sed -i ".backup" 's/^#.*$//' $filename
+sed -i ".backup" '/^$/d' $filename
+
+exit
+
 n=0
 while read label address; do
 # reading each line
-([[ "$label" =~ ^[[:space:]]*# ]] && continue
+[[ "$label" =~ ^[[:space:]]*# ]] && continue
 
 echo "$label $address"
 MNLabelArray[$n]=$label
