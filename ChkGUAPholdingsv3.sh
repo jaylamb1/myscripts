@@ -22,6 +22,7 @@ filename=$1
 n=0
 while read label address; do
 # reading each line
+shopt -s extglob
 #([[ "$label" =~ ^[[:space:]]*# ]] && continue
 [[ "$label" =~ +[[:space:]] ]] && continue
 echo "$label $address"
@@ -29,6 +30,7 @@ MNLabelArray[$n]=$label
 MNArray[$n]=$address
 n=$((n+1))
 done < $filename
+shopt -u extglob
 
 #echo ""
 echo ""
