@@ -1,16 +1,17 @@
 #!/bin/bash
+
+#Make all variable available as environment variables
 set -a
 
 echo ""
 echo "                   [GUAP Holdings Snaphot]                       "
 echo "-----------------------------------------------------------------"
 
-echo
-d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P')
+# Print timestamp in Day Date(MM-DD-YYYY) Time(HH:MMam) format
+d=$(TZ=":US/Eastern" date +'%a %m-%d-%Y %I:%M%P EST')
 echo "Timestamp : $d"
 echo ""
-#echo "GUAP addresses (and labels) read from address file:"
-#echo "-------------------------------------------------------"
+
 
 declare -a MNArray
 declare -a MNLabelArray
@@ -31,7 +32,7 @@ echo ""
 n=0
 echo "[Label]      [Address]                                [Subtotal] "
 echo "-----------------------------------------------------------------"
-#echo "Chg          GNENXQeidRkFxfjjoRcNiLpfSRMvs5eY6d : 31,690.000"
+
 echo ""
 
 for i in "${MNArray[@]}"
@@ -96,4 +97,6 @@ echo "Total number of GUAP masternodes                : $MNCount"
 echo ""
 echo "GUAP Chain Block Count                          : $BlockHeight"
 echo ""
+
+#Turn off environment variables
 set +a
