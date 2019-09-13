@@ -28,7 +28,7 @@ echo "$label $address"
 MNLabelArray[$n]=$label
 MNArray[$n]=$address
 n=$((n+1))
-done < $filename
+done #< $filename
 
 
 #echo ""
