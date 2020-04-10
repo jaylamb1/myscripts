@@ -114,11 +114,6 @@ shopt -u extglob
 #right justify
 MNCount=$(printf '%14s' $MNCount)
 
-#Get percentage of total GUAP voting power
-#n=$((n-2))
-#Perc2=$(python -c 'import os; print "{:>13,.0f}".format((float(os.environ["MN_Total"]) / float(os.environ["MNCount"]) * 100))')
-
-
 #Get current block count/height
 #parm9="http://159.65.221.180:3001/api/getblockcount"
 parm9=$(curl -s https://guapexplorer.com/api/getblockcount)
@@ -127,16 +122,15 @@ parm9=$(curl -s https://guapexplorer.com/api/getblockcount)
 BlockHeight=$parm9
 BlockHeight=$(printf '%14s' $BlockHeight)
 
-echo "BlockHeight $BlockHeight"
-#test exit
-echo "test exit"
-exit
-
 #Print out percentage of GUAP money supply, Masternode count, and GUAP chain block count/height
 echo "Percentage of total GUAP Money Supply           : $Perc%"
 echo ""
 echo "Total number of GUAP masternodes                : $MNCount"
 MNCount=$(python -c 'import os; print "{0:>14,.0f}".format(float(os.environ["MNCount"]))')
+
+#Get percentage of total GUAP voting power
+#old code used to account for 2 change addresses that were being tracked. Those addresses now have zero balances
+#n=$((n-2))
 n=$(python -c 'import os; print "{0:>14,.0f}".format(float(os.environ["n"]))')
 echo ""
 Perc2=$(python -c 'import os; print "{:>13,.2f}".format((float(os.environ["n"]) / float(os.environ["MNCount"]) * 100))')
