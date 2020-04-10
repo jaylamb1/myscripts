@@ -83,17 +83,18 @@ done
 #parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 #GUAPTotal=$(curl -s -X GET $parm7)
 
-parm7=$(curl -s hhttps://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://')
+parm7=$(curl -s hhttps://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://;s/}//')
 GUAPTotal=$parm7
 
-echo "masternode total $MN_Total"
-echo "Guap total $GUAPTotal"
-#test exit
-echo "test exit"
-exit
+
 
 #Get percentage of total GUAP money suppy held by the addressed evaluated
 Perc=$(python -c 'import os; print "{:>13,.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
+
+echo "percentage $Perc"
+#test exit
+echo "test exit"
+exit
 
 #Print out total holding and total GUAP money supply
 echo "-----------------------------------------------------------------"
