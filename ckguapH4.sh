@@ -52,9 +52,9 @@ echo ""
 n=0
 for i in "${MNArray[@]}"
 do
-  parm="curl -s https://guapexplorer.com/api/address/$i"
+  parm=$(curl -s https://guapexplorer.com/api/address/$i)
   echo "parm $parm"
-  parm="$parm | awk -F, '{print $3}'"
+  parm=$($parm | awk -F, '{print $3}')
   echo "new parm $parm"
   parm=$($parm | sed 's/.*://')
   echo "new new parm $parm"
