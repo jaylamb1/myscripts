@@ -89,11 +89,14 @@ Perc=$(python -c 'import os; print "{:>13,.2f}".format((float(os.environ["MN_Tot
 echo "-----------------------------------------------------------------"
 echo "  Total GUAP Holdings                           : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["MN_Total"]))')"
 
+parm10=$(curl -s https://guapexplorer.com/api/coin/ | awk -F, '{print $13}' | sed 's/.*://')
+GUAPValue=$parm10
+echo "  Total GUAP Holdings (USD)                     : \$$(python -c 'import os; print "{:>14.3f}".format((float(os.environ["MN_Total"]) * float(os.environ["GUAPValue"])))')"
 echo "-----------------------------------------------------------------"
 echo "-----------------------------------------------------------------"
 echo ""
 echo "Total GUAP Money Supply                         : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')"
-
+echo "Total GUAP Value                                :\$$(python -c 'import os; print "{:>14.3f}".format((float(os.environ["GUAPTotal"]) * float(os.environ["GUAPValue"])))')"
 echo ""
 #Get total number of GUAP masternodes and do some formating
 parm8="http://159.65.221.180:3001/ext/getmasternodecount"
@@ -117,6 +120,8 @@ BlockHeight=$(curl -s -X GET $parm9)
 BlockHeight=$(printf '%14s' $BlockHeight)
 
 #Print out percentage of GUAP money supply, Masternode count, and GUAP chain block count/height
+echo "Current GUAP Value (USD)                        : $GUAPValue"
+echo ""
 echo "Percentage of total GUAP Money Supply           : $Perc%"
 echo ""
 echo "Total number of GUAP masternodes                : $MNCount"
