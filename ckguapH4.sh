@@ -102,9 +102,6 @@ echo "Total GUAP Money Supply                         : $(python -c 'import os; 
 echo ""
 
 
-#test exit
-echo "test exit"
-exit
 
 #Get total number of GUAP masternodes and do some formating
 parm8="http://159.65.221.180:3001/ext/getmasternodecount"
@@ -118,14 +115,22 @@ shopt -u extglob
 MNCount=$(printf '%14s' $MNCount)
 
 #Get percentage of total GUAP voting power
-n=$((n-2))
+#n=$((n-2))
 #Perc2=$(python -c 'import os; print "{:>13,.0f}".format((float(os.environ["MN_Total"]) / float(os.environ["MNCount"]) * 100))')
 
 
 #Get current block count/height
-parm9="http://159.65.221.180:3001/api/getblockcount"
-BlockHeight=$(curl -s -X GET $parm9)
+#parm9="http://159.65.221.180:3001/api/getblockcount"
+parm9=$(curl -s https://guapexplorer.com/api/getblockcount)
+
+#BlockHeight=$(curl -s -X GET $parm9)
+BlockHeight=$parm9
 BlockHeight=$(printf '%14s' $BlockHeight)
+
+echo "BlockHeight $BlockHeight"
+#test exit
+echo "test exit"
+exit
 
 #Print out percentage of GUAP money supply, Masternode count, and GUAP chain block count/height
 echo "Percentage of total GUAP Money Supply           : $Perc%"
