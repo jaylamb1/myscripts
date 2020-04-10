@@ -85,6 +85,7 @@ done
 
 parm7=$(curl -s hhttps://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://;s/}//')
 GUAPTotal=$parm7
+GUAPTotal=$(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')
 
 
 
