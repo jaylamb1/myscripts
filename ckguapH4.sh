@@ -25,11 +25,11 @@ declare -a MNArray
 declare -a MNLabelArray
 
 #capture the external file
-filename=$1
+#filename=$1
 
 #Clean up the file, remove bash comments and empty lines (creates a backup before removal)
-sed -i".bkup" 's/^#.*$//' $filename #remove comments
-sed -i '/^$/d' $filename #remove empty lines
+#sed -i".bkup" 's/^#.*$//' $filename #remove comments
+#sed -i '/^$/d' $filename #remove empty lines
 
 #While loop to read in each GUAP address and corresponding label
 n=0
@@ -52,10 +52,10 @@ echo ""
 n=0
 for i in "${MNArray[@]}"
 do
-  parm="curl -s https://guapexplorer.com/api/address/$i | awk -F, '{print $3}'"
+  parm="curl -s https://guapexplorer.com/api/address/$i | awk -F, '{print $3}' | sed 's/.*://'"
   echo "parm $parm"
-  parm=$($parm | sed 's/.*://')
-  echo "new parm $parm"
+  #parm=$($parm | sed 's/.*://')
+  #echo "new parm $parm"
   #parm="http://159.65.221.180:3001/ext/getbalance/$i"
   Addr[$n]=$($parm)
   tempVar=${Addr[$n]}
