@@ -85,8 +85,8 @@ done
 
 parm7=$(curl -s https://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://;s/}//;s/\..*$//')
 GUAPTotal=$parm7
-GUAPTotal=$(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')
-
+echo "GUAPTotal $GUAPTotal"
+#GUAPTotal=$(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')
 
 
 #Get percentage of total GUAP money suppy held by the addressed evaluated
