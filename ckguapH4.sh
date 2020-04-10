@@ -52,14 +52,10 @@ echo ""
 n=0
 for i in "${MNArray[@]}"
 do
-  parm=$(curl -s https://guapexplorer.com/api/address/$i)
-  echo "parm $parm"
-  parm=$($parm | awk -F, '{print $3}')
-  echo "new parm $parm"
-  parm=$($parm | sed 's/.*://')
-  echo "new new parm $parm"
+
+  parm=$(curl -s https://guapexplorer.com/api/address/$i | awk -F, '{print $3}' | sed 's/.*://')
   #parm="http://159.65.221.180:3001/ext/getbalance/$i"
-  Addr[$n]=$($parm)
+  Addr[$n]=$parm
   tempVar=${Addr[$n]}
   tempLabel=${MNLabelArray[$n]}
   echo "  $tempLabel        $i : $(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["tempVar"]))')"
@@ -68,9 +64,6 @@ do
   ((++n))
 done
 
-#test exit
-echo "test exit"
-exit
 
 #Var to hold the total amount of GUAP from all saved GUAP addresses, and For loop to iterate through MNArray and calculate the total of all the addresses
 MN_Total=0
@@ -87,9 +80,17 @@ done
 
 
 #Get total current GUAP chain money supply
-parm7="http://159.65.221.180:3001/ext/getmoneysupply"
+#parm7="http://159.65.221.180:3001/ext/getmoneysupply"
+#GUAPTotal=$(curl -s -X GET $parm7)
 
-GUAPTotal=$(curl -s -X GET $parm7)
+parm7=$(curl -s hhttps://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://')
+GUAPTotal=$parm7
+
+echo "masternode total $MN_Total"
+echo "Guap total $GUAPTotal"
+#test exit
+echo "test exit"
+exit
 
 #Get percentage of total GUAP money suppy held by the addressed evaluated
 Perc=$(python -c 'import os; print "{:>13,.2f}".format((float(os.environ["MN_Total"]) / float(os.environ["GUAPTotal"]) * 100))')
