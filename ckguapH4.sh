@@ -83,7 +83,7 @@ done
 #parm7="http://159.65.221.180:3001/ext/getmoneysupply"
 #GUAPTotal=$(curl -s -X GET $parm7)
 
-parm7=$(curl -s hhttps://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://;s/}//')
+parm7=$(curl -s https://guapexplorer.com/api/supply | awk -F, '{print $2}' | sed 's/.*://;s/}//;s/\..*$//')
 GUAPTotal=$parm7
 GUAPTotal=$(python -c 'import os; print "{0:>14,.3f}".format(float(os.environ["GUAPTotal"]))')
 
