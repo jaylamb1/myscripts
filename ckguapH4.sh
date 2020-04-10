@@ -52,7 +52,10 @@ echo ""
 n=0
 for i in "${MNArray[@]}"
 do
-  parm="curl -s https://guapexplorer.com/api/address/$i |awk -F, '{print $3}' | sed 's/.*://'"
+  parm="curl -s https://guapexplorer.com/api/address/$i | awk -F, '{print $3}'"
+  echo "parm $parm"
+  parm=$($parm | sed 's/.*://')
+  echo "new parm $parm"
   #parm="http://159.65.221.180:3001/ext/getbalance/$i"
   Addr[$n]=$($parm)
   tempVar=${Addr[$n]}
